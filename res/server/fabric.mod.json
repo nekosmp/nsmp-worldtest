@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "nsmp-worldtest",
+  "version": "${mod_version}+${minecraft_version}",
+  "name": "${mod_name}",
+  "authors": [
+    {
+      "name": "AtakkuDev"
+    }
+  ],
+  "contact": {
+    "homepage": "https://atakku.dev/"
+  },
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "rs.neko.smp.worldtest.server.WorldTest"
+    ]
+  },
+  "depends": {
+    "fabric-api": ">=${fabric_version}",
+    "fabricloader": ">=${loader_version}",
+    "minecraft": ">=${minecraft_version}",
+    "java": ">=17"
+  }
+}
