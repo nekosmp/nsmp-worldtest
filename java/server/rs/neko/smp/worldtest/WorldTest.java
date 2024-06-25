@@ -2,7 +2,7 @@
 //
 // This project is dual licensed under MIT and Apache.
 
-package rs.neko.smp.worldtest.server;
+package rs.neko.smp.worldtest;
 
 import static net.minecraft.server.command.CommandManager.literal;
 
