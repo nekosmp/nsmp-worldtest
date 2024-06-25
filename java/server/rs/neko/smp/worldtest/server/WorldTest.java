@@ -4,12 +4,7 @@
 
 package rs.neko.smp.worldtest.server;
 
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import static net.minecraft.server.command.CommandManager.*;
+import static net.minecraft.server.command.CommandManager.literal;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,13 +22,17 @@ import net.minecraft.world.biome.source.BiomeAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import net.fabricmc.api.DedicatedServerModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class WorldTest implements ModInitializer {
+public class WorldTest implements DedicatedServerModInitializer {
   public static final String MOD_ID = "nsmp-worldtest";
   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
   @Override
-  public void onInitialize() {
+  public void onInitializeServer() {
     LOGGER.info("Initializing NSMP WorldTest");
 
     CommandRegistrationCallback.EVENT.register((d, r, e) -> {
@@ -73,7 +72,7 @@ public class WorldTest implements ModInitializer {
 
         // TODO: await all threads instead
         try {
-          Files.writeString(Path.of("./test.json"), gson.toJson(bc));
+          Files.writeString(Path.of("./worldtest-biomes.json"), gson.toJson(bc));
         } catch (Exception ex) {
           ex.printStackTrace();
         }

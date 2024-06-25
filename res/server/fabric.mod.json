@@ -11,9 +11,9 @@
   "contact": {
     "homepage": "https://atakku.dev/"
   },
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
-    "main": [
+    "server": [
       "rs.neko.smp.worldtest.server.WorldTest"
     ]
   },
